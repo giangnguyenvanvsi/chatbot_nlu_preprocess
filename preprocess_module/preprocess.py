@@ -14,11 +14,11 @@ path_dict_zip__ = os.path.join(my_path, "wordninja_/dict_update_2021_00.txt.gz")
     
 class PreProcessModule():
     def __init__(self, 
-                path_dict_zip = path_dict_zip__,
+                path_dict_zip_ = path_dict_zip__,
                 path_acronym_file = None):
         self.name = "Preprocess Module"
         self.corrector = SpellCorrect()
-        self.tokenizer = Tokenizer(path_dict_zip=path_dict_zip)
+        self.tokenizer = Tokenizer(path_dict_zip=path_dict_zip_)
         self.limelizer = Limelizer()
         self.acronymer = AcronymModule(path_acronym_file=path_acronym_file)
         

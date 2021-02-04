@@ -1,6 +1,7 @@
 import os
 import pkg_resources
-from symspellpy import SymSpell, Verbosity
+from symspellpy import SymSpell
+# from symspellpy import SymSpell, Verbosity
 import logging
 logging.basicConfig(level=logging.DEBUG)
 dictionary_path__ = pkg_resources.resource_filename(
@@ -12,7 +13,7 @@ bigram_path__ = pkg_resources.resource_filename(
 class SpellCorrect():
     def __init__(self, 
                 dictionary_path = dictionary_path__, 
-                bigram_path = dictionary_path__):
+                bigram_path = bigram_path__):
         
         self.sym_spell = SymSpell(max_dictionary_edit_distance=2, prefix_length=7)     
         if self.is_valid_path(dictionary_path) and self.is_valid_path(bigram_path):
@@ -20,7 +21,7 @@ class SpellCorrect():
             self.sym_spell.load_bigram_dictionary(bigram_path, term_index=0, count_index=2)
             self.load_status = True
         else:
-            self.load_status = True    
+            self.load_status = False    
         self.name = "Spell Corrector"
         
     
